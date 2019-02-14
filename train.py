@@ -93,8 +93,8 @@ def main():
               f"time: {end - start} sec!")
 
         # Save the model checkpoint
-        torch.save(model, MODEL_PATH + MODEL_NAME)
-    print(f"Model save to {MODEL_PATH + MODEL_NAME}.")
+        torch.save(model, MODEL_PATH + '/' + MODEL_NAME)
+    print(f"Model save to {MODEL_PATH + '/' + MODEL_NAME}.")
 
 
 if __name__ == '__main__':
