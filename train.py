@@ -20,7 +20,7 @@ import time
 import torch.backends.cudnn as cudnn
 import torch.utils.data.dataloader
 
-from nets.alexnet_test import alexnet
+from model import alexnet
 from utils.adjust import adjust_learning_rate
 from utils.datasets import load_datasets
 from utils.eval import accuracy
