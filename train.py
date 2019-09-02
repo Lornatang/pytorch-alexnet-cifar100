@@ -28,13 +28,13 @@ from utils.misc import AverageMeter
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR Classifier')
 parser.add_argument('--dataroot', type=str, default="~/pytorch_datasets", help="download train dataset path.")
-parser.add_argument('--datasets', type=str, default="cifar10", help="cifar10/cifar100 datasets. default=`cifar10`")
+parser.add_argument('--datasets', type=str, default="cifar100", help="cifar10/cifar100 datasets. default=`cifar100`")
 parser.add_argument('--batch_size', type=int, default=128, help="Every train dataset size.")
-parser.add_argument('--lr', type=float, default=0.01, help="starting lr, every 10 epoch decay 10.")
+parser.add_argument('--lr', type=float, default=0.01, help="starting lr, every 5 epoch decay 10.")
 parser.add_argument('--momentum', type=float, default=0.9, help="The ratio of accelerating convergence.")
 parser.add_argument('--weight_decay', type=float, default=1e-5, help="Mainly to prevent overfitting.")
 parser.add_argument('--epochs', type=int, default=50, help="Train loop")
-parser.add_argument('--every_epoch', type=int, default=10, help="Every epoch lr / 10.")
+parser.add_argument('--every_epoch', type=int, default=5, help="Every epoch lr / 10.")
 parser.add_argument('--phase', type=str, default='eval', help="train or eval?")
 parser.add_argument('--model_path', type=str, default="", help="load model path.")
 opt = parser.parse_args()
@@ -124,7 +124,7 @@ def train(train_dataloader, model, criterion, optimizer, epoch):
             f"Time {data_time.val:.3f} ({data_time.avg:.3f})\t"
             f"Loss {loss.item():.4f}\t"
             f"Prec@1 {top1.val:.3f} ({top1.avg:.3f})\t"
-            f"Prec@5 {top5.val:.3f} ({top5.avg:.3f})", end="\r")
+            f"Prec@5 {top5.val:.3f} ({top5.avg:.3f})")
   torch.save(model.state_dict(), f"./checkpoints/{opt.datasets}_epoch_{epoch + 1}.pth")
 
 
