@@ -39,12 +39,12 @@ class AlexNet(nn.Module):
     )
     self.classifier = nn.Sequential(
       nn.Dropout(),
-      nn.Linear(256 * 1 * 1, 4096),
+      nn.Linear(256 * 1 * 1, 400),
       nn.ReLU(inplace=True),
       nn.Dropout(),
-      nn.Linear(4096, 4096),
+      nn.Linear(400, ),
       nn.ReLU(inplace=True),
-      nn.Linear(4096, classes),
+      nn.Linear(400, classes),
     )
 
   def forward(self, x):
