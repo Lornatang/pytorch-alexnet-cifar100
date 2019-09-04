@@ -31,10 +31,7 @@ parser.add_argument('--dataroot', type=str, default="~/pytorch_datasets", help="
 parser.add_argument('--datasets', type=str, default="cifar100", help="cifar10/cifar100 datasets. default=`cifar100`")
 parser.add_argument('--batch_size', type=int, default=128, help="Every train dataset size.")
 parser.add_argument('--lr', type=float, default=0.0001, help="starting lr, every 10 epoch decay 10.")
-parser.add_argument('--momentum', type=float, default=0.9, help="The ratio of accelerating convergence.")
-parser.add_argument('--weight_decay', type=float, default=1e-5, help="Mainly to prevent overfitting.")
 parser.add_argument('--epochs', type=int, default=50, help="Train loop")
-parser.add_argument('--every_epoch', type=int, default=10, help="Every epoch lr / 10.")
 parser.add_argument('--phase', type=str, default='eval', help="train or eval? Default:`eval`")
 parser.add_argument('--model_path', type=str, default="", help="load model path.")
 opt = parser.parse_args()
@@ -74,8 +71,7 @@ print(model)
 criterion = torch.nn.CrossEntropyLoss()
 
 # Optimizer
-# optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
-optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr, weight_decay=opt.weight_decay)
+optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr)
 
 
 def train(train_dataloader, model, criterion, optimizer, epoch):
@@ -153,9 +149,6 @@ def test(model):
 def run():
   best_prec1 = 0.
   for epoch in range(opt.epochs):
-    # Adjust learning rate according to schedule
-    adjust_learning_rate(opt.lr, optimizer, epoch, opt.every_epoch)
-
     # train for one epoch
     print(f"\nBegin Training Epoch {epoch + 1}")
     train(train_dataloader, model, criterion, optimizer, epoch)
