@@ -74,7 +74,8 @@ print(model)
 criterion = torch.nn.CrossEntropyLoss()
 
 # Optimizer
-optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
+# optimizer = torch.optim.SGD(model.parameters(), lr=opt.lr, momentum=opt.momentum, weight_decay=opt.weight_decay)
+optimizer = torch.optim.Adam(model.parameters(), lr=opt.lr, weight_decay=opt.weight_decay)
 
 
 def train(train_dataloader, model, criterion, optimizer, epoch):
