@@ -158,7 +158,6 @@ def load_datasets(name, root, batch_size):
                                       train=True,
                                       transform=transforms.Compose([
                                         transforms.Resize(32),
-                                        transforms.RandomHorizontalFlip(),
                                         transforms.ToTensor(),
                                         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
                                       ]))
