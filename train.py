@@ -31,7 +31,7 @@ parser.add_argument('--dataroot', type=str, default="~/pytorch_datasets", help="
 parser.add_argument('--datasets', type=str, default="cifar100", help="cifar10/cifar100 datasets. default=`cifar100`")
 parser.add_argument('--batch_size', type=int, default=128, help="Every train dataset size.")
 parser.add_argument('--lr', type=float, default=0.0001, help="starting lr, every 10 epoch decay 10.")
-parser.add_argument('--epochs', type=int, default=50, help="Train loop")
+parser.add_argument('--epochs', type=int, default=200, help="Train loop")
 parser.add_argument('--phase', type=str, default='eval', help="train or eval? Default:`eval`")
 parser.add_argument('--model_path', type=str, default="", help="load model path.")
 opt = parser.parse_args()
