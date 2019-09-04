@@ -42,7 +42,7 @@ class AlexNet(nn.Module):
       nn.Linear(256 * 1 * 1, 400),
       nn.ReLU(inplace=True),
       nn.Dropout(),
-      nn.Linear(400, ),
+      nn.Linear(400, 400),
       nn.ReLU(inplace=True),
       nn.Linear(400, classes),
     )
