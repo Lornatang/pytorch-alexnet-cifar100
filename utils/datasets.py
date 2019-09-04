@@ -17,7 +17,7 @@
 import torch.utils.data
 import torchvision.transforms as transforms
 
-import datasets
+import torchvision.datasets as datasets
 
 
 def load_datasets(name, root, batch_size):
