@@ -181,7 +181,6 @@ if __name__ == '__main__':
       print("Loading model successful!")
       accuracy = test(model)
       print(f"\nAccuracy of the network on the 10000 test images: {accuracy:.2f}%.\n")
-      visual(model)
     else:
       print("WARNING: You want use eval pattern, so you should add --model_path MODEL_PATH")
   else:
