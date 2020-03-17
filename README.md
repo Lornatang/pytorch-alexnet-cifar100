@@ -1,5 +1,7 @@
 # pytorch-alexnet-cifar100
 
+pytorch-alexnet-cifar100 has been deprecated. Please see [AlexNet-PyTorch](https://github.com/Lornatang/AlexNet-PyTorch), which includes implementations for all models in AlexNet.
+
 ```text
 AlexNet(
   (features): Sequential(
@@ -28,5 +30,3 @@ AlexNet(
   )
 )
 ```
-
-## Acc: 0.8891.
